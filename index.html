@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitbull Goods — Streetwear for the Brave</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🐾</span>
+                <span class="logo-text">PITBULL<span class="accent">GOODS</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <p class="hero-label">🔥 NEW DROP</p>
+                <h1 class="hero-title">Street <span class="accent">Dog</span> Collection</h1>
+                <p class="hero-description">Born from the streets. Built with heart. The first drop from Pitbull Goods — where style meets grit.</p>
+                <div class="hero-badges">
+                    <span class="badge">🖤 Premium Quality</span>
+                    <span class="badge">💚 Print-on-Demand</span>
+                    <span class="badge">🔥 Limited Drop</span>
+                </div>
+                <a href="#products" class="btn btn-primary">Shop Now ↓</a>
+            </div>
+            <div class="hero-image">
+                <img src="front_view_v2.png" alt="Pitbull Goods Hoodie Front" id="heroHoodie">
+                                    <div class="hero-image-nav">
+                                        <button class="img-btn active" data-img="front_view_v2.png">Front</button>
+                                        <button class="img-btn" data-img="back_view_v2.png">Back</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured <span class="accent">Drop</span></h2>
+                <p>First release from the Pitbull Goods crew</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="front_view_v2.png" alt="Street Dog Hoodie Front" class="product-img" id="productImg">
+                        <div class="product-img-toggle">
+                            <button class="toggle-btn active" data-target="front_view_v2.png">Front</button>
+                            <button class="toggle-btn" data-target="back_view_v2.png">Back</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Street Dog Hoodie</h3>
+                        <p class="product-line">Pitbull Goods × Street Dog</p>
+                        <div class="product-price">$44.99</div>
+                        <p class="product-description">
+                            Premium black hoodie featuring our signature realistic pitbull graphic with 
+                            "SD" in graffiti script on the chest. "Street Dog" commands the back. 
+                            100% cotton, heavyweight fleece. Unisex fit.
+                        </p>
+                        <ul class="product-features">
+                            <li>✅ Realistic pitbull chest print</li>
+                            <li>✅ Graffiti "Street Dog" back print</li>
+                            <li>✅ Premium black fleece hoodie</li>
+                            <li>✅ Unisex sizing XS–3XL</li>
+                            <li>🚚 Ships in 5–10 business days</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/7sY8wP2figC6cPQdAHdQQ01" target="_blank" class="btn btn-primary btn-block">Buy Now — $44.99</a>
+                        <p class="disclaimer">🔒 Secure checkout via Stripe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About <span class="accent">Pitbull Goods</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">🐕</div>
+                    <h3>Built by a Kid, for Everyone</h3>
+                    <p>Pitbull Goods was started by an 11-year-old entrepreneur who loves pitbulls and streetwear. Every design is hand-picked by him.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🌿</div>
+                    <h3>Print-on-Demand</h3>
+                    <p>Every item is printed fresh when you order. No waste, no warehouses — just quality gear made just for you.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💪</div>
+                    <h3>Street Dog Mentality</h3>
+                    <p>Tough, loyal, and never backs down. That's the pitbull way, and that's the Pitbull Goods way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In <span class="accent">Touch</span></h2>
+                <p>Questions about your order? Hit us up!</p>
+            </div>
+            <div class="contact-info">
+                <p>📧 <a href="mailto:support@pitbullgoods.com">support@pitbullgoods.com</a></p>
+                <p>🐾 Follow us on Instagram: <strong>@pitbullgoods</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <span class="logo-icon">🐾</span>
+                    <span class="logo-text">PITBULL<span class="accent">GOODS</span></span>
+                </div>
+                <p class="footer-tagline">Streetwear for the Brave.</p>
+                <p class="footer-copy">© 2026 Pitbull Goods. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
