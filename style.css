@@ -359,9 +359,9 @@ body {
     display: block;
 }
 
-/* Women's Section — Light Pink Theme */
+/* Women's Section — Pink Theme */
 .women-section {
-    background: #fff5f7;
+    background: #ffe4ec;
 }
 
 .women-section .section-header h2 {
@@ -373,8 +373,8 @@ body {
 }
 
 .women-section .product-card {
-    background: #ffffff;
-    border-color: #ffe0e6;
+    background: #fff5f7;
+    border-color: #ffc0d0;
 }
 
 .women-section .product-name {
