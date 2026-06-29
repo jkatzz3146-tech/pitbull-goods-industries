@@ -239,6 +239,48 @@ body {
     display: block;
     width: 100%;
     text-align: center;
+    margin-top: 12px;
+}
+
+/* Product Options (Size/Color Selectors) */
+.product-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.option-group {
+    flex: 1;
+}
+
+.option-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-bottom: 4px;
+}
+
+.option-group select {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    appearance: auto;
+}
+
+.option-group select:hover,
+.option-group select:focus {
+    border-color: var(--green);
+    outline: none;
 }
 
 .img-btn, .toggle-btn {
@@ -264,8 +306,125 @@ body {
 }
 
 /* ============================================ */
-/* PRODUCTS                                      */
+/* TAB NAVIGATION                                */
 /* ============================================ */
+
+.tab-bar {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 70px;
+    z-index: 500;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.tab-btn {
+    padding: 12px 32px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    background: var(--darker);
+    color: var(--gray-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tab-btn:hover {
+    border-color: var(--green);
+    color: var(--white);
+}
+
+.tab-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--black);
+}
+
+.tab-section {
+    display: none;
+}
+
+.tab-section.active {
+    display: block;
+}
+
+/* Women's Section — Light Pink Theme */
+.women-section {
+    background: #fff5f7;
+}
+
+.women-section .section-header h2 {
+    color: #333;
+}
+
+.women-section .section-header p {
+    color: #888;
+}
+
+.women-section .product-card {
+    background: #ffffff;
+    border-color: #ffe0e6;
+}
+
+.women-section .product-name {
+    color: #333;
+}
+
+.women-section .product-line {
+    color: #e84393;
+}
+
+.women-section .product-price {
+    color: #e84393;
+}
+
+.women-section .product-description {
+    color: #666;
+}
+
+.women-section .option-group label {
+    color: #999;
+}
+
+.women-section .option-group select {
+    background: #fff;
+    border-color: #ffe0e6;
+    color: #333;
+}
+
+.women-section .option-group select:hover,
+.women-section .option-group select:focus {
+    border-color: #e84393;
+}
+
+.women-section .product-features li {
+    color: #666;
+}
+
+.women-section .btn-primary {
+    background: #e84393;
+    color: #fff;
+}
+
+.women-section .btn-primary:hover {
+    background: #d63384;
+    box-shadow: 0 8px 30px rgba(232, 67, 147, 0.3);
+}
+
+.women-section .disclaimer {
+    color: #aaa;
+}
 
 .products {
     padding: 100px 0;
@@ -290,7 +449,10 @@ body {
 }
 
 .product-grid {
-    max-width: 700px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 

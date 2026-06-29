@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
@@ -18,7 +17,8 @@
                 <span class="logo-text">PITBULL<span class="accent">GOODS</span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#products">Shop</a></li>
+                <li><a href="#products" class="tab-link active" data-tab="unisex">Unisex</a></li>
+                <li><a href="#products" class="tab-link" data-tab="women">Women</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -26,41 +26,52 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <p class="hero-label">🔥 NEW DROP</p>
-                <h1 class="hero-title">Street <span class="accent">Dog</span> Collection</h1>
-                <p class="hero-description">Born from the streets. Built with heart. The first drop from Pitbull Goods — where style meets grit.</p>
+                <p class="hero-label">🔥 PITBULL GOODS</p>
+                <h1 class="hero-title">Streetwear for the <span class="accent">Brave</span></h1>
+                <p class="hero-description">Born from the streets. Built with heart. Every design features our signature realistic pitbull and graffiti style. Available in a rainbow of base & graffiti colors. With every purchase, 3% goes to pitbull rescue. Quality guaranteed.</p>
                 <div class="hero-badges">
                     <span class="badge">🖤 Premium Quality</span>
-                    <span class="badge">💚 Print-on-Demand</span>
-                    <span class="badge">🔥 Limited Drop</span>
+                    <span class="badge">🎨 Custom Colors</span>
+                    <span class="badge">🐾 3% for Pitbull Rescue</span>
                 </div>
-                <a href="#products" class="btn btn-primary">Shop Now ↓</a>
+                <a href="#products" class="btn btn-primary">Shop All →</a>
             </div>
             <div class="hero-image">
-                <img src="front_view_v2.png" alt="Pitbull Goods Hoodie Front" id="heroHoodie">
-                                    <div class="hero-image-nav">
-                                        <button class="img-btn active" data-img="front_view_v2.png">Front</button>
-                                        <button class="img-btn" data-img="back_view_v2.png">Back</button>
+                <img src="front_view_v2.png" alt="Pitbull Goods Hoodie" id="heroHoodie">
+                <div class="hero-image-nav">
+                    <button class="img-btn active" data-img="front_view_v2.png">Front</button>
+                    <button class="img-btn" data-img="back_view_v2.png">Back</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products" id="products">
+    <!-- Tab Navigation -->
+    <section class="tab-bar">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="unisex">👕 Unisex Collection</button>
+                <button class="tab-btn" data-tab="women">🌸 Women's Collection</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ UNISEX SECTION ============ -->
+    <section class="products tab-section active" id="products-unisex" data-tab="unisex">
         <div class="container">
             <div class="section-header">
-                <h2>Featured <span class="accent">Drop</span></h2>
-                <p>First release from the Pitbull Goods crew</p>
+                <h2>Unisex <span class="accent">Collection</span></h2>
+                <p>Premium quality. Pick your base color + graffiti color. <strong>🐾 3% of every purchase donated to Best Friends Animal Society</strong> to help rescue pitbulls. Ships in 5-10 business days.</p>
             </div>
             <div class="product-grid">
+
+                <!-- U1: Street Dog Hoodie -->
                 <div class="product-card">
                     <div class="product-images">
-                        <img src="front_view_v2.png" alt="Street Dog Hoodie Front" class="product-img" id="productImg">
+                        <img src="front_view_v2.png" alt="Street Dog Hoodie" class="product-img" id="hoodieImg">
                         <div class="product-img-toggle">
                             <button class="toggle-btn active" data-target="front_view_v2.png">Front</button>
                             <button class="toggle-btn" data-target="back_view_v2.png">Back</button>
@@ -68,29 +79,477 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Street Dog Hoodie</h3>
-                        <p class="product-line">Pitbull Goods × Street Dog</p>
+                        <p class="product-line">Unisex — Heavyweight Fleece</p>
                         <div class="product-price">$44.99</div>
-                        <p class="product-description">
-                            Premium black hoodie featuring our signature realistic pitbull graphic with 
-                            "SD" in graffiti script on the chest. "Street Dog" commands the back. 
-                            100% cotton, heavyweight fleece. Unisex fit.
-                        </p>
-                        <ul class="product-features">
-                            <li>✅ Realistic pitbull chest print</li>
-                            <li>✅ Graffiti "Street Dog" back print</li>
-                            <li>✅ Premium black fleece hoodie</li>
-                            <li>✅ Unisex sizing XS–3XL</li>
-                            <li>🚚 Ships in 5–10 business days</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/7sY8wP2figC6cPQdAHdQQ01" target="_blank" class="btn btn-primary btn-block">Buy Now — $44.99</a>
-                        <p class="disclaimer">🔒 Secure checkout via Stripe</p>
+                        <p class="product-description">Premium hoodie with realistic pitbull + "SD" graffiti on chest and "Street Dog" on back. 100% cotton fleece. Unisex fit.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Size</label>
+                                <select class="size-select">
+                                    <option value="Youth XS">Youth XS</option><option value="Youth S">Youth S</option>
+                                    <option value="Youth M">Youth M</option><option value="Youth L">Youth L</option>
+                                    <option value="Adult S" selected>Adult S</option><option value="Adult M">Adult M</option>
+                                    <option value="Adult L">Adult L</option><option value="Adult XL">Adult XL</option>
+                                    <option value="Adult 2XL">2XL</option><option value="Adult 3XL">3XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="White">🤍 White</option>
+                                    <option value="Gray">🩶 Gray</option>
+                                    <option value="Navy">💙 Navy</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/7sY8wP2figC6cPQdAHdQQ01" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/7sY8wP2figC6cPQdAHdQQ01">Buy Now — $44.99</a>
                     </div>
                 </div>
+
+                <!-- U2: Y2K Street Dog Tee -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="y2k_shirt_mockup.png" alt="Y2K Street Dog Tee" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Y2K Street Dog Tee</h3>
+                        <p class="product-line">Unisex — Oversized Fit</p>
+                        <div class="product-price">$27.99</div>
+                        <p class="product-description">Oversized tee with pitbull + "SD" on chest, "Street Dog" on back. Baggy fit. Youth to Adult sizes.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Size</label>
+                                <select class="size-select">
+                                    <option value="Youth S">Youth S</option><option value="Youth M">Youth M</option>
+                                    <option value="Youth L">Youth L</option><option value="Adult S" selected>Adult S</option>
+                                    <option value="Adult M">Adult M</option><option value="Adult L">Adult L</option>
+                                    <option value="Adult XL">Adult XL</option><option value="Adult 2XL">2XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="White">🤍 White</option>
+                                    <option value="Gray">🩶 Gray</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/28E5kDg6885A7vw54bdQQ07" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/28E5kDg6885A7vw54bdQQ07">Buy Now — $27.99</a>
+                    </div>
+                </div>
+
+                <!-- U3: Cargo Joggers -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="streetwear_pants_mockup.png" alt="Street Dog Joggers" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Street Dog Cargo Joggers</h3>
+                        <p class="product-line">Unisex — Streetwear Pants</p>
+                        <div class="product-price">$34.99</div>
+                        <p class="product-description">Cargo joggers with pockets and elastic cuffs. Pitbull+SD branding. S–3XL.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Size</label>
+                                <select class="size-select">
+                                    <option value="S" selected>S</option><option value="M">M</option>
+                                    <option value="L">L</option><option value="XL">XL</option>
+                                    <option value="2XL">2XL</option><option value="3XL">3XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="Gray">🩶 Gray</option><option value="Navy">💙 Navy</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/00wdR96vy71wg221RZdQQ02" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/00wdR96vy71wg221RZdQQ02">Buy Now — $34.99</a>
+                    </div>
+                </div>
+
+                <!-- U4: Backpack -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="backpack_mockup.png" alt="Pitbull Goods Backpack" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pitbull Goods Backpack</h3>
+                        <p class="product-line">Unisex — Streetwear Backpack</p>
+                        <div class="product-price">$29.99</div>
+                        <p class="product-description">Black backpack with custom pitbull+SD logo print. Multiple compartments. Perfect for school or everyday.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="Gray">🩶 Gray</option><option value="White">🤍 White</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/dRm14n07a1Hc7vw0NVdQQ03" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/dRm14n07a1Hc7vw0NVdQQ03">Buy Now — $29.99</a>
+                    </div>
+                </div>
+
+                <!-- U5: LED Strip Lights -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="led_strips_mockup.png" alt="LED Strip Lights" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">LED Strip Lights</h3>
+                        <p class="product-line">Room Decor — 5m Roll</p>
+                        <div class="product-price">$19.99</div>
+                        <p class="product-description">5m LED strip lights with remote and music sync. 16+ colors. Perfect for bedroom or gaming setup.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Length</label>
+                                <select class="size-select">
+                                    <option value="5m" selected>5m Roll</option>
+                                    <option value="10m">10m Roll</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/7sYdR9cTWclQ9DEeELdQQ04" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/7sYdR9cTWclQ9DEeELdQQ04">Buy Now — $19.99</a>
+                    </div>
+                </div>
+
+                <!-- U6: Sticker Pack -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="stickers_mockup.png" alt="Sticker Pack" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sticker Pack (12-Pack)</h3>
+                        <p class="product-line">Die-Cut Vinyl</p>
+                        <div class="product-price">$9.99</div>
+                        <p class="product-description">12 die-cut vinyl stickers featuring pitbull designs, SD logo, and graffiti art. Waterproof.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/aFaeVd1be2Lg2bc0NVdQQ05" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/aFaeVd1be2Lg2bc0NVdQQ05">Buy Now — $9.99</a>
+                    </div>
+                </div>
+
+                <!-- U7: Poster Set -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="poster_mockup.png" alt="Poster Set" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Poster Set (6-Pack)</h3>
+                        <p class="product-line">Aesthetic Wall Art</p>
+                        <div class="product-price">$24.99</div>
+                        <p class="product-description">Set of 6 aesthetic/street art posters. Printed on premium paper. Shipped rolled in a tube.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/5kQ7sL3jm2Lg4jkdAHdQQ06" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/5kQ7sL3jm2Lg4jkdAHdQQ06">Buy Now — $24.99</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ============ WOMEN'S SECTION ============ -->
+    <section class="products tab-section women-section" id="products-women" data-tab="women">
+        <div class="container">
+            <div class="section-header">
+                <h2>🌸 Women's <span class="accent">Collection</span></h2>
+                <p>Same bold designs, tailored for her. Pick your base + graffiti color. <strong>🐾 3% of every purchase donated to Best Friends Animal Society</strong> to help rescue pitbulls. Ships in 5-10 business days.</p>
+            </div>
+            <div class="product-grid">
+
+                <!-- W1: Street Dog Hoodie -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="front_view_v2.png" alt="Street Dog Hoodie" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Street Dog Hoodie</h3>
+                        <p class="product-line">Women's Fit — Cozy Fleece</p>
+                        <div class="product-price">$44.99</div>
+                        <p class="product-description">Cozy hoodie with realistic pitbull + "SD" graffiti on chest and "Street Dog" on back. Women's fit. S–3XL.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Size</label>
+                                <select class="size-select">
+                                    <option value="Women S" selected>S</option><option value="Women M">M</option>
+                                    <option value="Women L">L</option><option value="Women XL">XL</option>
+                                    <option value="Women 2XL">2XL</option><option value="Women 3XL">3XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="White">🤍 White</option>
+                                    <option value="Pink">🩷 Pink</option>
+                                    <option value="Lavender">💜 Lavender</option>
+                                    <option value="Gray">🩶 Gray</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/7sY8wP2figC6cPQdAHdQQ01" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/7sY8wP2figC6cPQdAHdQQ01">Buy Now — $44.99</a>
+                    </div>
+                </div>
+
+                <!-- W2: Y2K Street Dog Tee -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="y2k_shirt_mockup.png" alt="Y2K Street Dog Tee" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Y2K Street Dog Tee</h3>
+                        <p class="product-line">Women's Fit — Cropped Street Style</p>
+                        <div class="product-price">$27.99</div>
+                        <p class="product-description">Trendy oversized tee with pitbull + "SD" on chest. Women's slouchy fit. Youth–Adult sizes.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Size</label>
+                                <select class="size-select">
+                                    <option value="Women XS">XS</option><option value="Women S" selected>S</option>
+                                    <option value="Women M">M</option><option value="Women L">L</option>
+                                    <option value="Women XL">XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="White">🤍 White</option>
+                                    <option value="Pink">🩷 Pink</option>
+                                    <option value="Lavender">💜 Lavender</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/28E5kDg6885A7vw54bdQQ07" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/28E5kDg6885A7vw54bdQQ07">Buy Now — $27.99</a>
+                    </div>
+                </div>
+
+                <!-- W3: Yoga Joggers -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="streetwear_pants_mockup.png" alt="Street Dog Joggers" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Street Dog Joggers</h3>
+                        <p class="product-line">Women's Fit — Slim Street Style</p>
+                        <div class="product-price">$34.99</div>
+                        <p class="product-description">Slim-fit joggers with pockets. Pitbull+SD branding. Women's fit XS–XL.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Size</label>
+                                <select class="size-select">
+                                    <option value="Women XS">XS</option><option value="Women S" selected>S</option>
+                                    <option value="Women M">M</option><option value="Women L">L</option>
+                                    <option value="Women XL">XL</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="Pink">🩷 Pink</option><option value="Gray">🩶 Gray</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/00wdR96vy71wg221RZdQQ02" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/00wdR96vy71wg221RZdQQ02">Buy Now — $34.99</a>
+                    </div>
+                </div>
+
+                <!-- W4: Mini Backpack -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="backpack_mockup.png" alt="Pitbull Goods Mini Backpack" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mini Pitbull Backpack</h3>
+                        <p class="product-line">Women's — Trendy Mini Bag</p>
+                        <div class="product-price">$29.99</div>
+                        <p class="product-description">Compact mini backpack with custom pitbull+SD logo. Perfect for nights out or light carry.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Base Color</label>
+                                <select class="base-color-select">
+                                    <option value="Black" selected>🖤 Black</option>
+                                    <option value="Pink">🩷 Pink</option><option value="White">🤍 White</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/dRm14n07a1Hc7vw0NVdQQ03" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/dRm14n07a1Hc7vw0NVdQQ03">Buy Now — $29.99</a>
+                    </div>
+                </div>
+
+                <!-- W5: LED Strip Lights -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="led_strips_mockup.png" alt="LED Strip Lights" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">LED Strip Lights</h3>
+                        <p class="product-line">Room Decor — 5m Roll</p>
+                        <div class="product-price">$19.99</div>
+                        <p class="product-description">5m LED strip lights with remote and music sync. 16+ colors. Perfect for bedroom makeovers.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Length</label>
+                                <select class="size-select">
+                                    <option value="5m" selected>5m Roll</option>
+                                    <option value="10m">10m Roll</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/7sYdR9cTWclQ9DEeELdQQ04" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/7sYdR9cTWclQ9DEeELdQQ04">Buy Now — $19.99</a>
+                    </div>
+                </div>
+
+                <!-- W6: Sticker Pack -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="stickers_mockup.png" alt="Sticker Pack" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sticker Pack (12-Pack)</h3>
+                        <p class="product-line">Die-Cut Vinyl</p>
+                        <div class="product-price">$9.99</div>
+                        <p class="product-description">12 die-cut vinyl stickers featuring pitbull designs, SD logo, and graffiti art. Perfect for decorating.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/aFaeVd1be2Lg2bc0NVdQQ05" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/aFaeVd1be2Lg2bc0NVdQQ05">Buy Now — $9.99</a>
+                    </div>
+                </div>
+
+                <!-- W7: Poster Set -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="poster_mockup.png" alt="Poster Set" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Poster Set (6-Pack)</h3>
+                        <p class="product-line">Aesthetic Wall Art</p>
+                        <div class="product-price">$24.99</div>
+                        <p class="product-description">Set of 6 aesthetic posters. Premium paper, shipped rolled in tube. Perfect for bedroom decor.</p>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Graffiti Color</label>
+                                <select class="color-select">
+                                    <option value="Green" selected>💚 Green</option><option value="Blue">💙 Blue</option>
+                                    <option value="Red">❤️ Red</option><option value="Pink">🩷 Pink</option>
+                                    <option value="Purple">💜 Purple</option><option value="Teal">🩵 Teal</option>
+                                    <option value="Yellow">💛 Yellow</option><option value="Orange">🧡 Orange</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a href="https://buy.stripe.com/5kQ7sL3jm2Lg4jkdAHdQQ06" target="_blank" class="btn btn-primary btn-block" data-base-link="https://buy.stripe.com/5kQ7sL3jm2Lg4jkdAHdQQ06">Buy Now — $24.99</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
@@ -103,20 +562,19 @@
                     <p>Pitbull Goods was started by an 11-year-old entrepreneur who loves pitbulls and streetwear. Every design is hand-picked by him.</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-icon">🌿</div>
-                    <h3>Print-on-Demand</h3>
-                    <p>Every item is printed fresh when you order. No waste, no warehouses — just quality gear made just for you.</p>
+                    <div class="about-icon">🎨</div>
+                    <h3>Custom Colors</h3>
+                    <p>Choose from 8 graffiti colors and multiple base colors. Make every piece your own.</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-icon">💪</div>
-                    <h3>Street Dog Mentality</h3>
-                    <p>Tough, loyal, and never backs down. That's the pitbull way, and that's the Pitbull Goods way.</p>
+                    <div class="about-icon">🐾</div>
+                    <h3>3% Donated to Pitbull Rescue</h3>
+                    <p>Every purchase supports <strong>Best Friends Animal Society</strong> — a 4-star charity where <strong>~81% of donations</strong> go directly to helping animals. Together we're saving pitbulls, one hoodie at a time.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -130,7 +588,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
