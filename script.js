@@ -3,6 +3,10 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Track current hoodie view state (front or back)
+    let hoodieView = 'front';
+
     // Image Switcher — Hero Section
     const heroImg = document.getElementById('heroHoodie');
     const heroBtns = document.querySelectorAll('.hero-image-nav .img-btn');
@@ -13,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 heroImg.src = btn.dataset.img;
+                // Sync the hoodie view
+                hoodieView = btn.dataset.img.includes('back') ? 'back' : 'front';
             });
         });
     }
@@ -27,8 +33,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 hoodieImg.src = btn.dataset.target;
+                hoodieView = btn.dataset.target.includes('back') ? 'back' : 'front';
             });
         });
+    }
+
+    // Update hoodie image based on base color and graffiti color selections
+    function updateHoodieImage() {
+        if (!hoodieImg) return;
+        const hoodieCard = hoodieImg.closest('.product-card');
+        if (!hoodieCard) return;
+        
+        const baseColor = (hoodieCard.querySelector('.base-color-select')?.value || '').toLowerCase();
+        const graffitiColor = (hoodieCard.querySelector('.color-select')?.value || '').toLowerCase();
+        const prefix = hoodieView === 'back' ? 'back' : 'front';
+        
+        // Try base color image first (e.g., front_black.png)
+        let imgSrc = `${prefix}_${baseColor}.png`;
+        
+        // Create an image to test if it loads
+        const testImg = new Image();
+        testImg.onload = () => { hoodieImg.src = imgSrc; };
+        testImg.onerror = () => {
+            // Fallback: try graffiti color image (e.g., front_green.png)
+            let fallbackSrc = `${prefix}_${graffitiColor}.png`;
+            const testFallback = new Image();
+            testFallback.onload = () => { hoodieImg.src = fallbackSrc; };
+            testFallback.onerror = () => {
+                // Final fallback: original image
+                hoodieImg.src = `${prefix}_view_v2.png`;
+            };
+            testFallback.src = fallbackSrc;
+        };
+        testImg.src = imgSrc;
     }
 
     // Tab Switching
@@ -45,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSection = document.querySelector(`.tab-section[data-tab="${tab}"]`);
             if (targetSection) targetSection.classList.add('active');
 
-            // Smooth scroll to products
             if (!btn.classList.contains('nav-links')) {
                 document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
             }
@@ -74,17 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Base Color Selectors
+    // Base Color Selectors — update image + buy button
     document.querySelectorAll('.base-color-select').forEach(select => {
         select.addEventListener('change', function() {
             updateBuyButton(this.closest('.product-card'));
+            updateHoodieImage();
         });
     });
 
-    // Graffiti Color Selectors
+    // Graffiti Color Selectors — update image + buy button
     document.querySelectorAll('.color-select').forEach(select => {
         select.addEventListener('change', function() {
             updateBuyButton(this.closest('.product-card'));
+            updateHoodieImage();
         });
     });
 
