@@ -3,11 +3,11 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+
     // ============================================
-    // IMAGE SWITCHING — Color changes update product images
+    // PRODUCT NAME → TYPE MAP
     // ============================================
     
-    // Maps product cards to their type and available variants
     function getProductType(card) {
         const name = card.querySelector('.product-name')?.textContent || '';
         if (name.includes('Hoodie')) return 'hoodie';
@@ -20,36 +20,35 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
-    // Get the product image element in a card
     function getProductImage(card) {
-        // Use the first product-img in the card
         return card.querySelector('.product-img');
     }
 
-    // Update the product image based on current color selections
-    function updateProductImage(card) {
+    // ============================================
+    // IMAGE SWITCHER — Shows color variant on the product image
+    // Uses a data attribute to track whether the graffiti or base
+    // color was changed most recently — the last click wins.
+    // ============================================
+    
+    function showVariantImage(card, changedSelector, changedValue) {
         const img = getProductImage(card);
         if (!img) return;
         
         const productType = getProductType(card);
-        if (!productType) return;
+        if (!productType || productType === 'led') return;
         
-        // Get current selections
-        const baseColor = (card.querySelector('.base-color-select')?.value || '').toLowerCase();
-        const graffitiColor = (card.querySelector('.color-select')?.value || '').toLowerCase();
-        const color = graffitiColor || baseColor || 'green';
+        const color = changedValue.toLowerCase();
+        const isBack = img.src.includes('_back') || img.src.includes('back_');
         
-        // Determine image filename based on product type
-        let filename = '';
-        let isBack = img.src.includes('back');
-        
+        // Determine filename
+        let filename;
         switch(productType) {
             case 'hoodie':
-                // Hoodie has both base color and graffiti color variants
-                if (baseColor && ['black','white','gray','pink','lavender'].includes(baseColor)) {
-                    // Try base color image first
-                    filename = `${isBack ? 'back' : 'front'}_${baseColor}.png`;
+                if (changedSelector === 'base-color-select') {
+                    // Base colors: black, white, gray, pink, lavender
+                    filename = `${isBack ? 'back' : 'front'}_${color}.png`;
                 } else {
+                    // Graffiti colors: green, blue, red, pink, purple, orange, teal, yellow
                     filename = `${isBack ? 'back' : 'front'}_${color}.png`;
                 }
                 break;
@@ -68,28 +67,38 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'poster':
                 filename = `poster_${color}.png`;
                 break;
-            case 'led':
-                filename = 'led_strips_mockup.png'; // No color variants for LED
-                break;
         }
         
         if (!filename) return;
         
-        // Test if the image exists, fallback to default
-        const testImg = new Image();
-        const defaultImg = img.dataset.default || img.src;
-        
-        // Store default if not already stored
+        // Store default image on first call
         if (!img.dataset.default) {
             img.dataset.default = img.src;
         }
         
+        // Try loading the variant; fall back to default if missing
+        const testImg = new Image();
         testImg.onload = () => { img.src = filename; };
-        testImg.onerror = () => { 
-            // Fallback to default
-            img.src = img.dataset.default; 
-        };
+        testImg.onerror = () => { img.src = img.dataset.default; };
         testImg.src = filename;
+    }
+
+    // ============================================
+    // STRIPE LINK UPDATER
+    // ============================================
+    
+    function updateBuyButton(card) {
+        const buyBtn = card.querySelector('.btn-block');
+        if (!buyBtn) return;
+        const baseLink = buyBtn.dataset.baseLink || buyBtn.href.split('?')[0];
+        const size = card.querySelector('.size-select')?.value || '';
+        const baseColor = card.querySelector('.base-color-select')?.value || '';
+        const graffitiColor = card.querySelector('.color-select')?.value || '';
+        const params = new URLSearchParams();
+        if (size) params.set('size', size);
+        if (baseColor) params.set('base_color', baseColor);
+        if (graffitiColor) params.set('graffiti_color', graffitiColor);
+        buyBtn.href = baseLink + '?' + params.toString();
     }
 
     // ============================================
@@ -152,25 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
-    // STRIPE LINK UPDATER
-    // ============================================
-    
-    function updateBuyButton(card) {
-        const buyBtn = card.querySelector('.btn-block');
-        if (!buyBtn) return;
-        const baseLink = buyBtn.dataset.baseLink || buyBtn.href.split('?')[0];
-        const size = card.querySelector('.size-select')?.value || '';
-        const baseColor = card.querySelector('.base-color-select')?.value || '';
-        const graffitiColor = card.querySelector('.color-select')?.value || '';
-        const params = new URLSearchParams();
-        if (size) params.set('size', size);
-        if (baseColor) params.set('base_color', baseColor);
-        if (graffitiColor) params.set('graffiti_color', graffitiColor);
-        buyBtn.href = baseLink + '?' + params.toString();
-    }
-
-    // ============================================
-    // EVENT LISTENERS — Color changes trigger image + link updates
+    // EVENT LISTENERS — Color changes → image + link update
     // ============================================
     
     // Size Selectors
@@ -180,21 +171,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Base Color Selectors
+    // Base Color Selectors — show base color variant
     document.querySelectorAll('.base-color-select').forEach(select => {
         select.addEventListener('change', function() {
             const card = this.closest('.product-card');
             updateBuyButton(card);
-            updateProductImage(card);
+            showVariantImage(card, 'base-color-select', this.value);
         });
     });
 
-    // Graffiti Color Selectors
+    // Graffiti Color Selectors — show graffiti color variant  
     document.querySelectorAll('.color-select').forEach(select => {
         select.addEventListener('change', function() {
             const card = this.closest('.product-card');
             updateBuyButton(card);
-            updateProductImage(card);
+            showVariantImage(card, 'color-select', this.value);
         });
     });
 
